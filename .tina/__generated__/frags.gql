@@ -1,5 +1,11 @@
 fragment PageParts on Page {
-  body
+  ... on PagePage1 {
+    body
+  }
+  ... on PagePage2 {
+    title
+    body
+  }
 }
 
 fragment PostParts on Post {

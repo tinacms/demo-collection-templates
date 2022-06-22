@@ -7,12 +7,35 @@ const schema = defineSchema({
       name: "page",
       path: "content/page",
       format: "mdx",
-      fields: [
+      templates: [
         {
-          name: "body",
-          label: "Main Content",
-          type: "rich-text",
-          isBody: true,
+          name: "page1",
+          label: "Page 1",
+          fields: [
+            {
+              name: "body",
+              label: "Main Content",
+              type: "rich-text",
+              isBody: true,
+            },
+          ],
+        },
+        {
+          name: "page2",
+          label: "Page 2",
+          fields: [
+            {
+              name: "title",
+              label: "Title",
+              type: "string",
+            },
+            {
+              name: "body",
+              label: "Main Content",
+              type: "rich-text",
+              isBody: true,
+            },
+          ],
         },
       ],
     },

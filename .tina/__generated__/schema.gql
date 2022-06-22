@@ -77,14 +77,24 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
 }
 
-union DocumentNode = Page | Post
+union DocumentNode = PagePage1 | PagePage2 | Post
 
-type Page implements Node & Document {
+type PagePage1 implements Node & Document {
   body: JSON
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
+
+type PagePage2 implements Node & Document {
+  title: String
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+union Page = PagePage1 | PagePage2
 
 type PageConnectionEdges {
   cursor: String!
@@ -132,8 +142,18 @@ input DocumentMutation {
   post: PostMutation
 }
 
-input PageMutation {
+input PagePage1Mutation {
   body: JSON
+}
+
+input PagePage2Mutation {
+  title: String
+  body: JSON
+}
+
+input PageMutation {
+  page1: PagePage1Mutation
+  page2: PagePage2Mutation
 }
 
 input PostMutation {
