@@ -1,11 +1,11 @@
 import { staticRequest } from "tinacms";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Layout } from "../components/Layout";
 import { useTina } from "tinacms/dist/edit-state";
 
 const query = `{
   page(relativePath: "home.mdx"){
-    body
+    title
+    text
   }
 }`;
 
@@ -17,10 +17,10 @@ export default function Home(props) {
     data: props.data,
   });
 
-  const content = data.page.body;
+  const content = data.page.title;
   return (
     <Layout>
-      <TinaMarkdown content={content} />
+      <h1>{content}</h1>
     </Layout>
   );
 }

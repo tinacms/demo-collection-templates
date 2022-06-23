@@ -13,10 +13,9 @@ const schema = defineSchema({
           label: "Page 1",
           fields: [
             {
-              name: "body",
-              label: "Main Content",
-              type: "rich-text",
-              isBody: true,
+              name: "text",
+              label: "Text",
+              type: "string",
             },
           ],
         },
@@ -30,10 +29,9 @@ const schema = defineSchema({
               type: "string",
             },
             {
-              name: "body",
-              label: "Main Content",
-              type: "rich-text",
-              isBody: true,
+              name: "text",
+              label: "Text",
+              type: "string",
             },
           ],
         },

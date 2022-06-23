@@ -167,7 +167,7 @@ export type DocumentNode = PagePage1 | PagePage2 | Post;
 
 export type PagePage1 = Node & Document & {
   __typename?: 'PagePage1';
-  body?: Maybe<Scalars['JSON']>;
+  text?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
@@ -176,7 +176,7 @@ export type PagePage1 = Node & Document & {
 export type PagePage2 = Node & Document & {
   __typename?: 'PagePage2';
   title?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['JSON']>;
+  text?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
@@ -288,12 +288,12 @@ export type DocumentMutation = {
 };
 
 export type PagePage1Mutation = {
-  body?: InputMaybe<Scalars['JSON']>;
+  text?: InputMaybe<Scalars['String']>;
 };
 
 export type PagePage2Mutation = {
   title?: InputMaybe<Scalars['String']>;
-  body?: InputMaybe<Scalars['JSON']>;
+  text?: InputMaybe<Scalars['String']>;
 };
 
 export type PageMutation = {
@@ -306,9 +306,9 @@ export type PostMutation = {
   body?: InputMaybe<Scalars['String']>;
 };
 
-type PageParts_PagePage1_Fragment = { __typename?: 'PagePage1', body?: any | null | undefined };
+type PageParts_PagePage1_Fragment = { __typename?: 'PagePage1', text?: string | null | undefined };
 
-type PageParts_PagePage2_Fragment = { __typename?: 'PagePage2', title?: string | null | undefined, body?: any | null | undefined };
+type PageParts_PagePage2_Fragment = { __typename?: 'PagePage2', title?: string | null | undefined, text?: string | null | undefined };
 
 export type PagePartsFragment = PageParts_PagePage1_Fragment | PageParts_PagePage2_Fragment;
 
@@ -319,7 +319,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename?: 'PagePage1', id: string, body?: any | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | { __typename?: 'PagePage2', id: string, title?: string | null | undefined, body?: any | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type PageQuery = { __typename?: 'Query', page: { __typename?: 'PagePage1', id: string, text?: string | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | { __typename?: 'PagePage2', id: string, title?: string | null | undefined, text?: string | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -330,7 +330,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PagePage1', id: string, body?: any | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | { __typename?: 'PagePage2', id: string, title?: string | null | undefined, body?: any | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null | undefined } | null | undefined> | null | undefined } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PagePage1', id: string, text?: string | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | { __typename?: 'PagePage2', id: string, title?: string | null | undefined, text?: string | null | undefined, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null | undefined } | null | undefined> | null | undefined } };
 
 export type PostQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -353,11 +353,11 @@ export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __ty
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
   ... on PagePage1 {
-    body
+    text
   }
   ... on PagePage2 {
     title
-    body
+    text
   }
 }
     `;

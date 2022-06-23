@@ -80,7 +80,7 @@ type Collection {
 union DocumentNode = PagePage1 | PagePage2 | Post
 
 type PagePage1 implements Node & Document {
-  body: JSON
+  text: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -88,7 +88,7 @@ type PagePage1 implements Node & Document {
 
 type PagePage2 implements Node & Document {
   title: String
-  body: JSON
+  text: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -143,12 +143,12 @@ input DocumentMutation {
 }
 
 input PagePage1Mutation {
-  body: JSON
+  text: String
 }
 
 input PagePage2Mutation {
   title: String
-  body: JSON
+  text: String
 }
 
 input PageMutation {

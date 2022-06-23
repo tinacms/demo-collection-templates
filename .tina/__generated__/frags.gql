@@ -1,10 +1,10 @@
 fragment PageParts on Page {
   ... on PagePage1 {
-    body
+    text
   }
   ... on PagePage2 {
     title
-    body
+    text
   }
 }
 
